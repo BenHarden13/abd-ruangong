@@ -1,0 +1,347 @@
+/* ======================================
+   GLOBAL ENHANCEMENTS CSS
+   为 Diet & Health Hub 应用提供统一的高级视觉效果
+   ====================================== */
+
+/* =================== 
+   1. 色彩系统 
+   =================== */
+:root {
+  /* 主色调 */
+  --primary: #4CAF50; /* 健康绿 */
+  --primary-light: #7DCE81;
+  --primary-dark: #3B8C3F;
+  
+  /* 辅助色 */
+  --secondary: #2196F3; /* 活力蓝 */
+  --secondary-light: #64B5F6;
+  --secondary-dark: #1976D2;
+  
+  /* 中性色 */
+  --neutral-100: #F8F9FA;
+  --neutral-200: #E9ECEF;
+  --neutral-300: #DEE2E6;
+  --neutral-400: #CED4DA;
+  --neutral-500: #ADB5BD;
+  --neutral-600: #6C757D;
+  --neutral-700: #495057;
+  --neutral-800: #343A40;
+  --neutral-900: #212529;
+  
+  /* 语义色 */
+  --success: #28A745;
+  --info: #17A2B8;
+  --warning: #FFC107;
+  --danger: #DC3545;
+  
+  /* 渐变色 - 用于背景或卡片 */
+  --gradient-primary: linear-gradient(120deg, #84FAB0 0%, #8FD3F4 100%);
+  --gradient-secondary: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  --gradient-cool: linear-gradient(135deg, #ABDCFF 0%, #0396FF 100%);
+  --gradient-warm: linear-gradient(135deg, #FFD3A5 0%, #FD6585 100%);
+  --gradient-dark: linear-gradient(to right, #434343 0%, #000000 100%);
+  
+  /* 其他变量 */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --transition-speed: 0.3s;
+}
+
+/* =================== 
+   2. 阴影系统 (Neumorphism/Soft UI)
+   =================== */
+.shadow-soft {
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.shadow-soft:hover {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-neumorphic {
+  background: var(--neutral-100);
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.08),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-speed) ease;
+}
+
+.shadow-neumorphic:hover {
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.06),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.card {
+  border-radius: var(--border-radius-md);
+  border: none;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* =================== 
+   3. 动画工具箱 (Animation Toolkit)
+   =================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* 工具类 */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* 为不同元素设置动画延迟 */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* =================== 
+   4. 全局过渡 (Global Transitions)
+   =================== */
+button, a, .card, .interactive {
+  transition: all var(--transition-speed) ease;
+}
+
+button {
+  border-radius: var(--border-radius-sm);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+/* =================== 
+   5. 交互反馈
+   =================== */
+button:active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  opacity: 0;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    opacity: 0.5;
+    transform: scale(2.5);
+  }
+}
+
+/* 表单元素增强 */
+input, select, textarea {
+  border: 1px solid var(--neutral-400);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  outline: none;
+}
+
+/* =================== 
+   6. 骨架屏 
+   =================== */
+.skeleton {
+  background: linear-gradient(90deg, 
+    var(--neutral-200) 25%, 
+    var(--neutral-300) 37%, 
+    var(--neutral-200) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+/* =================== 
+   7. 通用布局增强 
+   =================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  margin: 4rem 0;
+}
+
+/* 只对需要动画的section应用透明度 */
+section.animate-on-scroll {
+  opacity: 1; /* 默认可见，避免页面空白 */
+  transition: opacity 0.6s ease;
+}
+
+/* 滚动动画触发时的效果 */
+section.animate-on-scroll.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* 网格系统增强 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1.5rem;
+}
+
+/* 弹性布局增强 */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =================== 
+   8. 响应式适配 
+   =================== */
+@media (max-width: 768px) {
+  section {
+    margin: 2rem 0;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  button {
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

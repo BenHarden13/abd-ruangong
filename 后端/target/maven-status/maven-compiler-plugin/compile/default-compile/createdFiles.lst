@@ -1,0 +1,14 @@
+com\diet\hub\entity\HealthRecord.class
+com\diet\hub\controller\RecipeController.class
+com\diet\hub\repository\RecipeRepository.class
+com\diet\hub\config\DataInitializer.class
+com\diet\hub\dto\HealthProfileRequestDto.class
+com\diet\hub\controller\HealthProfileController.class
+com\diet\hub\repository\HealthProfileRepository.class
+com\diet\hub\dto\HealthProfileResponseDto.class
+com\diet\hub\service\HealthProfileService.class
+com\diet\hub\controller\HealthCheckController.class
+com\diet\hub\entity\HealthProfile.class
+com\diet\hub\service\RecipeService.class
+com\diet\hub\DietHubApplication.class
+com\diet\hub\entity\Recipe.class

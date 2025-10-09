@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饮食推荐 - Diet Hub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/recommendations.css">
+    <link rel="stylesheet" href="../css/global-enhancements.css">
+    <link rel="stylesheet" href="../css/skeleton-loader.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🍎 Diet & Health Hub</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="profile.html" class="nav-link">健康档案</a>
+                <a href="dashboard.html" class="nav-link">健康仪表盘</a>
+                <a href="recommendations.html" class="nav-link active">饮食推荐</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>🍽️ 智能饮食推荐</h1>
+                <p>基于您的健康目标，为您推荐最适合的食谱</p>
+            </div>
+
+            <!-- 搜索和筛选区域 -->
+            <div class="search-section animate-fadeInUp">
+                <div class="search-box shadow-soft">
+                    <input type="text" id="searchInput" placeholder="搜索食谱名称、食材...">
+                    <button id="searchBtn" class="btn btn-primary">
+                        🔍 搜索
+                    </button>
+                </div>
+
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>餐次类型</label>
+                        <select id="mealTypeFilter">
+                            <option value="">全部</option>
+                            <option value="早餐">早餐</option>
+                            <option value="午餐">午餐</option>
+                            <option value="晚餐">晚餐</option>
+                            <option value="加餐">加餐</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>分类</label>
+                        <select id="categoryFilter">
+                            <option value="">全部分类</option>
+                            <option value="Salad">沙拉</option>
+                            <option value="Bowl">碗装餐</option>
+                            <option value="Main Course">主菜</option>
+                            <option value="Soup">汤类</option>
+                            <option value="Snack">小吃</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>卡路里范围</label>
+                        <select id="caloriesFilter">
+                            <option value="">不限</option>
+                            <option value="0-200">0-200 千卡</option>
+                            <option value="200-400">200-400 千卡</option>
+                            <option value="400-600">400-600 千卡</option>
+                            <option value="600+">600+ 千卡</option>
+                        </select>
+                    </div>
+
+                    <button id="resetFilterBtn" class="btn btn-secondary">
+                        重置筛选
+                    </button>
+                </div>
+            </div>
+
+            <!-- 快速标签 -->
+            <div class="tags-section animate-fadeInUp delay-100">
+                <span class="tag-label">快速筛选:</span>
+                <button class="tag shadow-soft" data-tag="high-protein">高蛋白</button>
+                <button class="tag shadow-soft" data-tag="low-carb">低碳水</button>
+                <button class="tag shadow-soft" data-tag="vegan">素食</button>
+                <button class="tag shadow-soft" data-tag="gluten-free">无麸质</button>
+                <button class="tag shadow-soft" data-tag="high-fiber">高纤维</button>
+            </div>
+
+            <!-- 加载状态 -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <!-- 骨架屏加载效果 -->
+            <div id="skeletonGrid" class="recipes-grid animate-fadeIn">
+                <!-- 骨架屏占位元素 -->
+                <div class="recipe-card shadow-soft skeleton-card">
+                    <div class="skeleton recipe-img-skeleton"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-tags"></div>
+                        <div class="skeleton skeleton-stats"></div>
+                        <div class="skeleton skeleton-desc"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+                <div class="recipe-card shadow-soft skeleton-card">
+                    <div class="skeleton recipe-img-skeleton"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-tags"></div>
+                        <div class="skeleton skeleton-stats"></div>
+                        <div class="skeleton skeleton-desc"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+                <div class="recipe-card shadow-soft skeleton-card">
+                    <div class="skeleton recipe-img-skeleton"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-tags"></div>
+                        <div class="skeleton skeleton-stats"></div>
+                        <div class="skeleton skeleton-desc"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+                <div class="recipe-card shadow-soft skeleton-card">
+                    <div class="skeleton recipe-img-skeleton"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-tags"></div>
+                        <div class="skeleton skeleton-stats"></div>
+                        <div class="skeleton skeleton-desc"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 食谱网格 -->
+            <div id="recipesGrid" class="recipes-grid" style="display: none;">
+                <!-- 食谱卡片将通过JavaScript动态生成 -->
+            </div>
+
+            <!-- 无结果提示 -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>未找到相关食谱</h3>
+                <p>请尝试调整搜索条件或筛选器</p>
+                <button class="btn btn-primary" onclick="location.reload()">
+                    查看所有食谱
+                </button>
+            </div>
+
+            <!-- 没有档案提示 -->
+            <div id="noProfileMessage" class="no-profile-card" style="display: none;">
+                <div class="no-profile-icon">👤</div>
+                <h2>还没有健康档案</h2>
+                <p>创建档案后，我们将为您提供更精准的个性化推荐</p>
+                <button class="btn btn-primary btn-lg" onclick="location.href='profile.html'">
+                    创建档案
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 食谱详情模态框 -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content shadow-soft animate-scaleIn">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="recipe-header animate-fadeIn">
+                    <h2 id="modalRecipeName">食谱名称</h2>
+                    <div class="recipe-tags" id="modalRecipeTags"></div>
+                </div>
+
+                <div class="recipe-info-grid">
+                    <div class="info-box">
+                        <span class="info-icon">🔥</span>
+                        <span class="info-label">卡路里</span>
+                        <span class="info-value" id="modalCalories">-</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-icon">⏱️</span>
+                        <span class="info-label">准备时间</span>
+                        <span class="info-value" id="modalPrepTime">-</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-icon">📊</span>
+                        <span class="info-label">难度</span>
+                        <span class="info-value" id="modalDifficulty">-</span>
+                    </div>
+                </div>
+
+                <div class="recipe-section animate-fadeInUp delay-100">
+                    <h3>📝 描述</h3>
+                    <p id="modalDescription">-</p>
+                </div>
+
+                <div class="recipe-section animate-fadeInUp delay-200">
+                    <h3>🥗 食材清单</h3>
+                    <ul id="modalIngredients" class="ingredients-list"></ul>
+                </div>
+
+                <div class="recipe-section animate-fadeInUp delay-300">
+                    <h3>👨‍🍳 制作步骤</h3>
+                    <ol id="modalInstructions" class="instructions-list"></ol>
+                </div>
+
+                <div class="recipe-section animate-fadeInUp delay-400">
+                    <h3>📊 营养成分</h3>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item shadow-soft">
+                            <span class="nutrition-label">蛋白质</span>
+                            <span class="nutrition-value" id="modalProtein">-</span>
+                        </div>
+                        <div class="nutrition-item shadow-soft">
+                            <span class="nutrition-label">碳水化合物</span>
+                            <span class="nutrition-value" id="modalCarbs">-</span>
+                        </div>
+                        <div class="nutrition-item shadow-soft">
+                            <span class="nutrition-label">脂肪</span>
+                            <span class="nutrition-value" id="modalFat">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Diet & Health Hub. 健康生活，从科学饮食开始。</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/staggeredAnimation.js"></script>
+    <script src="../js/recommendations.js"></script>
+</body>
+</html>

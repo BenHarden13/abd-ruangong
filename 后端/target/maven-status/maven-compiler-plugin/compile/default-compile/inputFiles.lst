@@ -1,0 +1,14 @@
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\config\DataInitializer.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\controller\HealthCheckController.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\controller\HealthProfileController.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\controller\RecipeController.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\DietHubApplication.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\dto\HealthProfileRequestDto.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\dto\HealthProfileResponseDto.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\entity\HealthProfile.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\entity\HealthRecord.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\entity\Recipe.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\repository\HealthProfileRepository.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\repository\RecipeRepository.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\service\HealthProfileService.java
+D:\学习\软工项目\后端\src\main\java\com\diet\hub\service\RecipeService.java

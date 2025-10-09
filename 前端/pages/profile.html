@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人健康档案 - Diet Hub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/global-enhancements.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🍎 Diet & Health Hub</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="profile.html" class="nav-link active">健康档案</a>
+                <a href="dashboard.html" class="nav-link">健康仪表盘</a>
+                <a href="recommendations.html" class="nav-link">饮食推荐</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>📋 个人健康档案</h1>
+                <p>完善您的健康信息，获取更精准的健康建议</p>
+            </div>
+
+            <!-- 提示信息 -->
+            <div id="message" class="message"></div>
+
+            <!-- 档案表单 -->
+            <div class="profile-card shadow-soft animate-fadeIn">
+                <form id="profileForm" class="enhanced-form">
+                    <!-- 基本信息 -->
+                    <div class="form-section">
+                        <h2 class="section-title">基本信息</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userId">用户ID *</label>
+                                <input type="text" id="userId" name="userId" required 
+                                       placeholder="请输入您的用户ID">
+                                <small>用于识别您的个人档案</small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">年龄 *</label>
+                                <input type="number" id="age" name="age" required 
+                                       min="1" max="120" placeholder="请输入年龄">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gender">性别 *</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">请选择</option>
+                                    <option value="Male">男</option>
+                                    <option value="Female">女</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="height">身高 (cm) *</label>
+                                <input type="number" id="height" name="height" required 
+                                       min="50" max="250" step="0.1" placeholder="例: 170">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="weight">体重 (kg) *</label>
+                                <input type="number" id="weight" name="weight" required 
+                                       min="20" max="300" step="0.1" placeholder="例: 65">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 健康目标 -->
+                    <div class="form-section">
+                        <h2 class="section-title">健康目标</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="healthGoal">健康目标</label>
+                                <select id="healthGoal" name="healthGoal">
+                                    <option value="">请选择</option>
+                                    <option value="Weight Loss">减重</option>
+                                    <option value="Weight Gain">增重</option>
+                                    <option value="Maintain Weight">维持体重</option>
+                                    <option value="Muscle Gain">增肌</option>
+                                    <option value="General Health">一般健康</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="activityLevel">活动水平</label>
+                                <select id="activityLevel" name="activityLevel">
+                                    <option value="">请选择</option>
+                                    <option value="Sedentary">久坐 (很少运动)</option>
+                                    <option value="Light">轻度活动 (每周1-3次)</option>
+                                    <option value="Moderate">中度活动 (每周3-5次)</option>
+                                    <option value="Active">高度活动 (每周6-7次)</option>
+                                    <option value="Very Active">极度活动 (每天2次)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 饮食限制 -->
+                    <div class="form-section">
+                        <h2 class="section-title">饮食偏好与限制</h2>
+                        
+                        <div class="form-group">
+                            <label for="dietaryRestrictions">饮食限制</label>
+                            <textarea id="dietaryRestrictions" name="dietaryRestrictions" 
+                                      rows="3" placeholder="例: 素食、低碳水、生酮饮食等"></textarea>
+                            <small>如有特殊饮食要求，请在此说明</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="allergies">过敏信息</label>
+                            <textarea id="allergies" name="allergies" 
+                                      rows="3" placeholder="例: 海鲜、坚果、乳制品等"></textarea>
+                            <small>请列出所有已知的食物过敏</small>
+                        </div>
+                    </div>
+
+                    <!-- 按钮组 -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="loadBtn">
+                            加载档案
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="saveBtn">
+                            保存档案
+                        </button>
+                        <button type="button" class="btn btn-success" id="viewDashboardBtn">
+                            查看仪表盘
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 当前BMI显示 -->
+            <div id="bmiPreview" class="bmi-preview shadow-neumorphic animate-scaleIn" style="display: none;">
+                <h3>快速预览</h3>
+                <div class="bmi-value">
+                    <span class="label">当前BMI:</span>
+                    <span class="value" id="currentBMI">-</span>
+                </div>
+                <div class="bmi-status" id="bmiStatus"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Diet & Health Hub. 健康生活，从科学饮食开始。</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/formEnhancer.js" type="module"></script>
+    <script src="../js/profile.js"></script>
+    
+    <script>
+        // 增强表单交互体验
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查表单增强模块是否可用
+            if (window.enhanceFormInputs) {
+                // 增强表单输入元素交互
+                window.enhanceFormInputs('#profileForm');
+                
+                // 增强提交按钮
+                window.enhanceSubmitButton('#saveBtn', async function() {
+                    // 这里不需要具体实现，实际提交逻辑已经在profile.js中
+                    // 这里只是演示按钮交互效果
+                    return new Promise((resolve) => {
+                        setTimeout(resolve, 1500);
+                    });
+                });
+            } else {
+                // 备用方案：基本样式增强
+                enhanceFormFallback();
+            }
+        });
+        
+        // 备用增强方案
+        function enhanceFormFallback() {
+            const inputs = document.querySelectorAll('#profileForm input, #profileForm select, #profileForm textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.classList.add('input-focus');
+                    const label = document.querySelector(`label[for="${this.id}"]`);
+                    if (label) {
+                        label.classList.add('label-focus');
+                    }
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.classList.remove('input-focus');
+                    const label = document.querySelector(`label[for="${this.id}"]`);
+                    if (label) {
+                        label.classList.remove('label-focus');
+                    }
+                });
+            });
+            
+            // 表单提交按钮增强
+            const saveBtn = document.getElementById('saveBtn');
+            if (saveBtn) {
+                const originalText = saveBtn.textContent;
+                
+                saveBtn.addEventListener('click', function(e) {
+                    if (saveBtn.classList.contains('loading')) return;
+                    
+                    // 显示加载状态
+                    saveBtn.classList.add('loading');
+                    saveBtn.innerHTML = '<span class="spinner"></span>';
+                    
+                    // 模拟提交完成
+                    setTimeout(() => {
+                        saveBtn.classList.remove('loading');
+                        saveBtn.classList.add('success');
+                        saveBtn.innerHTML = '✓ 已保存';
+                        
+                        setTimeout(() => {
+                            saveBtn.classList.remove('success');
+                            saveBtn.textContent = originalText;
+                        }, 2000);
+                    }, 1500);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
