@@ -1,291 +1,207 @@
-// 全局工具函数
+// main.js - Global Scripts & Auth Gatekeeper
+
+// --- 1. AUTHENTICATION CHECK (Gatekeeper) ---
+// This runs immediately to protect pages
+(function checkAuth() {
+    // Check if we are currently on the login page to prevent redirect loops
+    const isLoginPage = window.location.href.includes('login.html');
+    
+    // Check authentication status from localStorage
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    // If not logged in and NOT already on the login page, redirect to login
+    if (!isLoggedIn && !isLoginPage) {
+        console.log('⛔ User not logged in. Redirecting to Login...');
+        
+        // Determine correct path to login.html based on current location
+        // Check if we are in a sub-folder like '/pages/'
+        const isInSubFolder = window.location.href.includes('/pages/');
+        
+        if (isInSubFolder) {
+            // Go up one level
+            window.location.href = '../login.html';
+        } else {
+            // In root
+            window.location.href = 'login.html';
+        }
+    }
+})();
+
+
+// --- 2. GLOBAL UTILITIES ---
 const utils = {
-    // 格式化数字
+    // Format numbers safely
     formatNumber: (number, decimals = 2) => {
+        if (number === null || number === undefined) return '-';
         return Number(number).toFixed(decimals);
     },
-
-    // 日期格式化
+    
+    // Format dates
     formatDate: (date) => {
+        if (!date) return '-';
         const d = new Date(date);
-        return d.toLocaleDateString('zh-CN', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     },
-
-    // 防抖函数
+    
+    // Debounce function for performance (e.g. search inputs)
     debounce: (func, wait) => {
         let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
+        return function(...args) {
             clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
+            timeout = setTimeout(() => func.apply(this, args), wait);
         };
     },
-
-    // 节流函数
+    
+    // Throttle function for performance (e.g. scroll events)
     throttle: (func, limit) => {
         let inThrottle;
-        return function executedFunction(...args) {
+        return function(...args) {
             if (!inThrottle) {
-                func(...args);
+                func.apply(this, args);
                 inThrottle = true;
                 setTimeout(() => inThrottle = false, limit);
             }
         };
     },
+    
+    // Toast Notification System
+    showToast: (message, type = 'info') => {
+        // Remove existing toasts to keep UI clean
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) existingToast.remove();
 
-    // 生成随机ID
-    generateId: () => {
-        return Math.random().toString(36).substr(2, 9);
-    },
-
-    // 显示Toast消息
-    showToast: (message, type = 'info', duration = 3000) => {
-        // 创建toast元素
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.textContent = message;
+        
+        // High-end Toast Styles
         toast.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            background: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'};
-            color: white;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10000;
-            animation: slideIn 0.3s ease-out;
+            position: fixed; 
+            top: 30px; 
+            right: 30px; 
+            padding: 16px 28px;
+            background: ${type === 'success' ? '#4a6b4a' : type === 'error' ? '#8b4747' : '#2c3e50'};
+            color: white; 
+            border-radius: 100px; 
+            z-index: 9999;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            letter-spacing: 0.5px;
         `;
+        
+        // Inject Keyframes if needed
+        if (!document.getElementById('toast-keyframes')) {
+            const style = document.createElement('style');
+            style.id = 'toast-keyframes';
+            style.innerHTML = `
+                @keyframes slideInRight {
+                    from { opacity: 0; transform: translateX(50px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
         
         document.body.appendChild(toast);
         
+        // Auto remove
         setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease-out';
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-10px)';
+            toast.style.transition = 'all 0.3s ease';
             setTimeout(() => toast.remove(), 300);
-        }, duration);
+        }, 3000);
     }
 };
 
-// 导航栏滚动效果
+
+// --- 3. PAGE INITIALIZATION ---
+const initPage = () => {
+    handleNavbarScroll();
+    initAnimations();
+    initHomeClock();
+};
+
+// Navbar Scroll Effect (Glass Morphism on Scroll)
 const handleNavbarScroll = () => {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
-
-    const toggleNavbarBackground = utils.throttle(() => {
-        if (window.scrollY > 50) {
+    
+    window.addEventListener('scroll', utils.throttle(() => {
+        if (window.scrollY > 20) {
             navbar.classList.add('scrolled');
+            // Dynamic styles for scrolled state if CSS class isn't enough
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.03)';
+            navbar.style.paddingTop = '1rem'; // Reset padding
         } else {
             navbar.classList.remove('scrolled');
+            // Reset to transparent/default
+            // We check if it's the home page transparent nav
+            if (navbar.classList.contains('transparent')) {
+                 navbar.style.background = 'transparent';
+                 navbar.style.boxShadow = 'none';
+                 navbar.style.paddingTop = '2rem';
+            } else {
+                 // Inner pages default
+                 navbar.style.background = '';
+                 navbar.style.boxShadow = '';
+            }
         }
-    }, 100);
-
-    window.addEventListener('scroll', toggleNavbarBackground);
+    }, 100));
 };
 
-// 动画效果
+// Scroll Animations (Intersection Observer)
 const initAnimations = () => {
-    const animatedElements = document.querySelectorAll('.animated, .fade-in-up');
-    
+    const elements = document.querySelectorAll('.animate-fadeInUp, .animate-scaleIn, .animate-fadeIn');
+    if (!elements.length) return;
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                // Manually trigger if CSS animation needs help
+                entry.target.style.animationPlayState = 'running';
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    animatedElements.forEach(element => {
-        observer.observe(element);
+    elements.forEach(el => {
+        observer.observe(el);
     });
 };
 
-// 主页搜索功能
-const initHomeSearch = () => {
-    const searchForm = document.getElementById('homeSearchForm');
-    const searchInput = document.getElementById('homeSearchInput');
-
-    if (searchForm && searchInput) {
-        searchForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const query = searchInput.value.trim();
-            if (query) {
-                window.location.href = `pages/results.html?q=${encodeURIComponent(query)}`;
-            }
+// Homepage Clock
+const initHomeClock = () => {
+    const timeEl = document.getElementById('currentTime');
+    if (!timeEl) return;
+    
+    const updateTime = () => {
+        const now = new Date();
+        timeEl.textContent = now.toLocaleTimeString('en-US', { 
+            hour12: false, 
+            hour: '2-digit', 
+            minute: '2-digit' 
         });
-    }
+    };
+    
+    updateTime();
+    setInterval(updateTime, 1000);
 };
 
-// 快速开始按钮
-const initQuickStart = () => {
-    const quickStartBtns = document.querySelectorAll('.quick-start-btn, .cta-btn');
-    
-    quickStartBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // 检查是否有用户档案
-            const userId = localStorage.getItem('currentUserId');
-            if (userId) {
-                window.location.href = 'pages/dashboard.html';
-            } else {
-                window.location.href = 'pages/profile.html';
-            }
-        });
-    });
-};
+// Auto-init when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPage);
+} else {
+    initPage();
+}
 
-// 特性卡片悬停效果
-const initFeatureCards = () => {
-    const featureCards = document.querySelectorAll('.feature-card, .feature-box');
-    
-    featureCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-};
-
-// 统计数字动画
-const animateStats = () => {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                stat.textContent = target;
-                clearInterval(timer);
-            } else {
-                stat.textContent = Math.floor(current);
-            }
-        }, 16);
-    });
-};
-
-// 初始化移动端菜单
-const initMobileMenu = () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-        
-        // 点击菜单项后关闭菜单
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-    }
-};
-
-// 页面加载进度条
-const showLoadingProgress = () => {
-    const progressBar = document.createElement('div');
-    progressBar.id = 'loadingProgress';
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #4CAF50, #8BC34A);
-        z-index: 99999;
-        transition: width 0.3s ease;
-    `;
-    document.body.appendChild(progressBar);
-    
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.random() * 30;
-        if (progress > 90) {
-            clearInterval(interval);
-        }
-        progressBar.style.width = Math.min(progress, 90) + '%';
-    }, 200);
-    
-    window.addEventListener('load', () => {
-        clearInterval(interval);
-        progressBar.style.width = '100%';
-        setTimeout(() => progressBar.remove(), 500);
-    });
-};
-
-// 初始化页面
-const initPage = () => {
-    // 显示加载进度
-    showLoadingProgress();
-    
-    // DOM加载完成后初始化
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            initPageFeatures();
-        });
-    } else {
-        initPageFeatures();
-    }
-};
-
-// 初始化页面功能
-const initPageFeatures = () => {
-    handleNavbarScroll();
-    initAnimations();
-    initHomeSearch();
-    initQuickStart();
-    initFeatureCards();
-    initMobileMenu();
-    
-    // 如果有统计数字，延迟执行动画
-    setTimeout(() => {
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateStats();
-                        observer.disconnect();
-                    }
-                });
-            });
-            observer.observe(statsSection);
-        }
-    }, 100);
-
-    console.log('✅ DietHub 前端初始化完成');
-    
-    // 检查用户登录状态
-    const userId = localStorage.getItem('currentUserId');
-    if (userId) {
-        console.log(`👤 当前用户: ${userId}`);
-    }
-};
-
-// 导出工具函数和初始化函数
+// Export utils to window so other scripts can use them
 window.utils = utils;
-window.initPage = initPage;
-
-// 自动初始化
-initPage();

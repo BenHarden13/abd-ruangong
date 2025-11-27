@@ -1,448 +1,450 @@
-/* 健康仪表盘页面样式 */
+/* Dashboard Styles - Quiet Living Theme */
 
 .main-content {
     padding: 40px 0;
     min-height: calc(100vh - 200px);
+    background-color: var(--bg-body);
 }
 
 .page-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .page-header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--sage-900);
     margin-bottom: 10px;
+    font-weight: 400;
 }
 
 .page-header p {
+    font-family: var(--font-sans);
     font-size: 1.1rem;
-    color: #7f8c8d;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
 }
 
-/* 用户信息卡片 */
+/* User Info Card */
 .user-info-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    background: #fff;
+    color: var(--text-main);
+    padding: 40px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    border: 1px solid var(--stone-200);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05) !important;
 }
 
 .user-info-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--stone-100);
 }
 
 .user-info-header h2 {
-    font-size: 1.8rem;
+    font-family: var(--font-serif);
+    font-size: 2rem;
     margin: 0;
+    color: var(--sage-900);
+}
+
+.btn-secondary-light {
+    background: transparent;
+    border: 1px solid var(--stone-300);
+    color: var(--text-light);
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-light:hover {
+    border-color: var(--sage-500);
+    color: var(--sage-800);
 }
 
 .user-info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
 }
 
 .info-item {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 15px;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 .info-item .label {
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sage-500);
 }
 
 .info-item .value {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sage-900);
 }
 
-/* 健康指标网格 */
+/* Metrics Grid */
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-/* 指标卡片 */
+/* Metric Card */
 .metric-card {
     background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid var(--stone-200);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
 }
 
 .metric-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+    border-color: transparent;
+}
+
+.metric-header {
+    margin-bottom: 15px;
 }
 
 .metric-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.8;
 }
 
 .metric-card h3 {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 15px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-light);
     font-weight: 500;
+    margin: 0;
 }
 
 .metric-value {
+    font-family: var(--font-serif);
     font-size: 2.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--sage-900);
+    margin-bottom: 5px;
+    line-height: 1.1;
 }
 
 .metric-unit {
-    font-size: 1rem;
-    color: #95a5a6;
-    margin-top: -5px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-family: var(--font-sans);
 }
 
 .metric-status {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 4px 12px;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-top: 10px;
-}
-
-.metric-status.underweight {
-    background-color: #fff3cd;
-    color: #856404;
-}
-
-.metric-status.normal {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.metric-status.overweight {
-    background-color: #fff3cd;
-    color: #856404;
-}
-
-.metric-status.obese {
-    background-color: #f8d7da;
-    color: #721c24;
+    margin-top: 8px;
+    color: var(--sage-800);
+    background: var(--sage-100);
+    border-radius: 4px;
 }
 
 .metric-description {
-    margin-top: 10px;
+    margin-top: 15px;
+    border-top: 1px solid var(--stone-100);
+    padding-top: 10px;
 }
 
 .metric-description small {
-    color: #95a5a6;
-    font-size: 0.85rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
 }
 
-/* 营养素卡片 */
+/* Nutrition Card */
 .nutrition-card {
     background: white;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    padding: 50px;
+    border-radius: 2px;
+    border: 1px solid var(--stone-200);
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .nutrition-card h2 {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--sage-900);
+    margin-bottom: 40px;
 }
 
 .macros-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .macro-item {
-    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    background: var(--stone-50);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--stone-100);
     transition: transform 0.3s ease;
 }
 
+/* Specific Colors for Macors (Muted/Earth Tones) */
+.macro-item.protein { background: #fff5f2; border-color: #ffece6; } /* Warm/Muted Red */
+.macro-item.carbs { background: #f0f7f4; border-color: #e3ebe3; } /* Sage */
+.macro-item.fats { background: #fffcf2; border-color: #f9f3e0; } /* Sand */
+
 .macro-item:hover {
-    transform: scale(1.05);
-}
-
-.macro-item.protein {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-}
-
-.macro-item.carbs {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
-}
-
-.macro-item.fats {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    color: white;
+    transform: translateY(-2px);
 }
 
 .macro-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.macro-details {
+    text-align: left;
 }
 
 .macro-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .macro-amount {
-    font-size: 2rem;
-    font-weight: bold;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sage-900);
+    line-height: 1;
     margin-bottom: 5px;
 }
 
-.macro-percentage {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    opacity: 0.9;
+.macro-sub {
+    font-size: 0.8rem;
+    color: var(--text-light);
 }
 
-.macro-calories {
-    font-size: 0.9rem;
-    opacity: 0.8;
+/* Donut Chart */
+.donut-chart-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
 }
 
-/* 营养素进度条 */
-.macro-bar {
-    height: 30px;
-    background: #f0f0f0;
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-}
-
-.macro-bar-segment {
+/* Rotate the whole SVG so 0deg is at 12 o'clock */
+.donut-chart {
+    transform: rotate(-90deg);
+    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
 }
 
-.protein-bar {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+/* Transition for smooth animation */
+.donut-chart circle {
+    transition: stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carbs-bar {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.fats-bar {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+.donut-center span {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--sage-900);
+    line-height: 1;
 }
 
-/* BMI分类卡片 */
+.donut-center small {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BMI Chart */
 .bmi-chart-card {
     background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: 2px;
+    border: 1px solid var(--stone-200);
+    margin-bottom: 40px;
 }
 
 .bmi-chart-card h2 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 25px;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--sage-900);
+    margin-bottom: 30px;
 }
 
 .bmi-ranges {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
 }
 
 .bmi-range {
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
-    color: white;
-    transition: transform 0.3s ease;
+    background: var(--stone-50);
+    border: 1px solid var(--stone-100);
+    transition: all 0.3s ease;
 }
 
-.bmi-range:hover {
-    transform: scale(1.05);
+/* BMI Range Colors - Pastel/Soft */
+.bmi-range.underweight { border-bottom: 4px solid #a8dadc; }
+.bmi-range.normal { border-bottom: 4px solid #a7c957; } /* Soft Green */
+.bmi-range.overweight { border-bottom: 4px solid #f4a261; } /* Soft Orange */
+.bmi-range.obese { border-bottom: 4px solid #e76f51; } /* Soft Red */
+
+.bmi-range.active, .bmi-range.user-range {
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transform: translateY(-3px);
 }
 
-.bmi-range.underweight {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    color: #333;
-}
-
-.bmi-range.normal {
-    background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
-    color: #333;
-}
-
-.bmi-range.overweight {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    color: #333;
-}
-
-.bmi-range.obese {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    color: #333;
+.bmi-range.user-range {
+    border-color: var(--sage-500);
 }
 
 .range-label {
     display: block;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
     margin-bottom: 5px;
 }
 
 .range-value {
     display: block;
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--text-light);
 }
 
-/* 建议卡片 */
+/* Advice Card */
 .recommendations-card {
     background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 2px;
+    border: 1px solid var(--stone-200);
     margin-bottom: 30px;
 }
 
 .recommendations-card h2 {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.advice-list {
-    margin-bottom: 20px;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--sage-900);
+    margin-bottom: 25px;
 }
 
 .advice-item {
-    padding: 15px;
-    background: #f8f9fa;
-    border-left: 4px solid #667eea;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    padding: 20px;
+    background: var(--stone-50);
+    border-left: 3px solid var(--sage-500);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 15px;
 }
 
-.advice-item strong {
-    color: #667eea;
+.advice-item h4 {
+    margin-bottom: 8px;
+    color: var(--sage-800);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+}
+
+.advice-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
 .no-data {
     text-align: center;
-    color: #95a5a6;
-    padding: 20px;
+    font-style: italic;
+    color: var(--text-light);
+    padding: 30px;
 }
 
 .card-actions {
     text-align: center;
+    margin-top: 30px;
 }
 
-/* 无数据卡片 */
+/* No Data State */
 .no-data-card {
     background: white;
-    padding: 60px 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 80px 40px;
+    border-radius: 2px;
+    border: 1px solid var(--stone-200);
     text-align: center;
 }
 
 .no-data-icon {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
+    opacity: 0.5;
 }
 
 .no-data-card h2 {
+    font-family: var(--font-serif);
     font-size: 2rem;
-    color: #2c3e50;
+    color: var(--sage-900);
     margin-bottom: 15px;
 }
 
-.no-data-card p {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 30px;
-}
-
-/* 响应式设计 */
+/* Responsive */
 @media (max-width: 768px) {
-    .metrics-grid {
+    .metrics-grid, .macros-grid {
         grid-template-columns: 1fr;
     }
-
-    .macros-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .bmi-ranges {
-        grid-template-columns: 1fr;
-    }
-
-    .user-info-grid {
-        grid-template-columns: 1fr;
-    }
-
     .page-header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
-
-    .nutrition-card,
-    .bmi-chart-card,
-    .recommendations-card {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-content {
-        padding: 20px 0;
-    }
-
-    .user-info-card {
-        padding: 20px;
-    }
-
-    .metric-card {
-        padding: 20px;
-    }
-
-    .metric-value {
-        font-size: 2rem;
-    }
-
-    .page-header h1 {
-        font-size: 1.75rem;
+    .nutrition-card {
+        padding: 30px 20px;
     }
 }

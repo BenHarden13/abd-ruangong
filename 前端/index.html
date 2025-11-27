@@ -1,263 +1,96 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet & Health Hub - 智能饮食健康管理系统</title>
+    <title>DietHub - Intelligent Nutrition</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS Order is important -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home-new.css">
     <link rel="stylesheet" href="css/global-enhancements.css">
+    <link rel="stylesheet" href="css/home-new.css">
+    
+    <!-- React Dependencies (Required for project structure) -->
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
 </head>
-<body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
+<!-- 
+    class="single-page-mode" triggers the full-screen background in css/home-new.css
+-->
+<body class="single-page-mode">
+
+    <!-- Navigation: Minimal Transparent -->
+    <nav class="navbar transparent">
         <div class="container">
             <div class="nav-brand">
-                <h2>🍎 Diet & Health Hub</h2>
+                <h2>DietHub.</h2>
             </div>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">首页</a>
-                <a href="pages/profile.html" class="nav-link">健康档案</a>
-                <a href="pages/dashboard.html" class="nav-link">健康仪表盘</a>
-                <a href="pages/recommendations.html" class="nav-link">饮食推荐</a>
+                <span class="nav-time" id="currentTime">--:--</span>
             </div>
         </div>
     </nav>
 
-    <!-- 主要内容区域 -->
-    <main>
-        <!-- 英雄区域 -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>智能饮食健康管理</h1>
-                    <p>基于个人健康档案，提供专业的饮食建议和健康追踪，让您的健康生活更加科学化</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-card action-card">
-                        <a href="pages/profile.html" class="btn btn-primary">开始使用</a>
-                        <p>创建个人档案</p>
-                    </div>
-                    <div class="stat-card action-card">
-                        <a href="pages/dashboard.html" class="btn btn-secondary">查看仪表盘</a>
-                        <p>健康数据追踪</p>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">📊</span>
-                        <h3>健康分析</h3>
-                        <p>BMI、BMR、TDEE等多维度健康指标分析</p>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">🥗</span>
-                        <h3>个性化推荐</h3>
-                        <p>基于个人目标的专业饮食建议</p>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">📈</span>
-                        <h3>趋势追踪</h3>
-                        <p>健康数据可视化趋势分析</p>
-                    </div>
-                </div>
+    <!-- Main Centered Content -->
+    <main class="landing-wrapper">
+        <div class="center-content">
+            
+            <!-- Hero Text -->
+            <div class="hero-text animate-fadeInUp">
+                <div class="season-badge">Intelligent Nutrition</div>
+                <h1>Mindful <em>Eating</em></h1>
+                <p>Scientific meal planning designed to disappear into your life.<br>Natural ingredients, silent tracking, pure health.</p>
             </div>
-        </section>
 
-        <!-- 功能特性 -->
-        <section id="features" class="features features-section animate-on-scroll">
-            <div class="container">
-                <h2 class="section-title">核心功能</h2>
-                <div class="features-grid">
-                    <div class="feature-card card shadow-soft">
-                        <div class="feature-icon">👤</div>
-                        <h3>个人健康档案</h3>
-                        <p>详细记录身体指标、健康目标和活动水平，为精准分析提供基础数据</p>
-                        <a href="pages/profile.html" class="feature-link">设置档案 →</a>
-                    </div>
-                    <div class="feature-card card shadow-soft">
-                        <div class="feature-icon">📊</div>
-                        <h3>健康仪表盘</h3>
-                        <p>实时查看BMI、BMR、TDEE等关键指标，追踪健康变化趋势</p>
-                        <a href="pages/dashboard.html" class="feature-link">查看数据 →</a>
-                    </div>
-                    <div class="feature-card card shadow-soft">
-                        <div class="feature-icon">🍽️</div>
-                        <h3>智能饮食推荐</h3>
-                        <p>基于个人目标和健康状况，提供科学的饮食建议和食谱推荐</p>
-                        <a href="pages/recommendations.html" class="feature-link">获取推荐 →</a>
-                    </div>
-                </div>
+            <!-- Main CTA -->
+            <div class="hero-cta animate-fadeInUp delay-200">
+                <a href="pages/profile.html" class="btn-glass-large">
+                    Start Journey <span class="arrow">→</span>
+                </a>
             </div>
-        </section>
+            
+            <!-- Glass Dock Navigation -->
+            <div class="glass-dock animate-fadeInUp delay-400">
+                <a href="pages/dashboard.html" class="dock-item">
+                    <span class="dock-icon">📊</span>
+                    <span class="dock-label">Dashboard</span>
+                </a>
+                <div class="dock-divider"></div>
+                <a href="pages/profile.html" class="dock-item">
+                    <span class="dock-icon">👤</span>
+                    <span class="dock-label">Profile</span>
+                </a>
+                <div class="dock-divider"></div>
+                <a href="pages/recommendations.html" class="dock-item">
+                    <span class="dock-icon">🥗</span>
+                    <span class="dock-label">Recipes</span>
+                </a>
+            </div>
 
-        <!-- 系统状态 -->
-        <section class="system-status">
-            <div class="container">
-                <h2 class="section-title">系统状态</h2>
-                <div class="status-grid">
-                    <div class="status-item shadow-soft">
-                        <div class="status-indicator animate-pulse" id="frontend-status">🟢</div>
-                        <div class="status-info">
-                            <h3>前端系统</h3>
-                            <p id="frontend-info">运行正常</p>
-                        </div>
-                    </div>
-                    <div class="status-item shadow-soft">
-                        <div class="status-indicator animate-pulse" id="backend-status">🔴</div>
-                        <div class="status-info">
-                            <h3>后端服务</h3>
-                            <p id="backend-info">连接中...</p>
-                        </div>
-                    </div>
-                    <div class="status-item shadow-soft">
-                        <div class="status-indicator animate-pulse" id="data-status">🟡</div>
-                        <div class="status-info">
-                            <h3>数据存储</h3>
-                            <p id="data-info">本地存储可用</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 使用流程 -->
-        <section class="process process-section animate-on-scroll">
-            <div class="container">
-                <h2 class="section-title">简单三步，开启健康之旅</h2>
-                <div class="process-steps">
-                    <div class="step process-step shadow-neumorphic">
-                        <div class="step-number">1</div>
-                        <h3>创建档案</h3>
-                        <p>填写个人基本信息和健康目标</p>
-                    </div>
-                    <div class="step process-step shadow-neumorphic">
-                        <div class="step-number">2</div>
-                        <h3>获取分析</h3>
-                        <p>系统自动计算您的健康指标</p>
-                    </div>
-                    <div class="step process-step shadow-neumorphic">
-                        <div class="step-number">3</div>
-                        <h3>享受定制</h3>
-                        <p>获得专属食谱和营养建议</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🍎 Diet & Health Hub</h3>
-                    <p>智能饮食健康管理系统</p>
-                </div>
-                <div class="footer-section">
-                    <h4>功能模块</h4>
-                    <ul>
-                        <li><a href="pages/profile.html">个人档案</a></li>
-                        <li><a href="pages/dashboard.html">健康仪表盘</a></li>
-                        <li><a href="pages/recommendations.html">饮食推荐</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>技术架构</h4>
-                    <ul>
-                        <li>前端：HTML5 + CSS3 + JavaScript</li>
-                        <li>后端：Spring Boot + JPA</li>
-                        <li>数据库：H2/MySQL</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Diet & Health Hub. 健康生活，从科学饮食开始。</p>
-            </div>
-        </div>
+    <!-- Minimal Footer -->
+    <footer class="landing-footer">
+        <p>&copy; 2024 DietHub. Designed for quiet living.</p>
     </footer>
 
-    <!-- 加载API客户端 -->
-    <script src="js/api.js"></script>
+    <!-- React Root (Hidden, prevents React errors) -->
+    <div id="root" style="display: none;"></div>
+
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/ScrollAnimations.js" type="module"></script>
-    <script>
-        // 页面加载完成后检查系统状态并初始化动画
-        window.addEventListener('DOMContentLoaded', async function() {
-            // 确保所有section都可见
-            document.querySelectorAll('section').forEach(section => {
-                section.style.opacity = '1';
-            });
-            
-            await checkSystemStatus();
-            
-            // 初始化滚动动画
-            if (window.initHomePageScrollAnimations) {
-                window.initHomePageScrollAnimations();
-            } else {
-                // 如果模块导入失败，使用备用方案初始化动画
-                initScrollAnimationsFallback();
-            }
-        });
-
-        // 检查系统状态
-        async function checkSystemStatus() {
-            const backendStatus = document.getElementById('backend-status');
-            const backendInfo = document.getElementById('backend-info');
-            const dataStatus = document.getElementById('data-status');
-            const dataInfo = document.getElementById('data-info');
-
-            try {
-                // 检查后端连接
-                if (window.API && window.API.healthProfile) {
-                    await window.API.healthProfile.getAllProfiles();
-                    backendStatus.textContent = '🟢';
-                    backendInfo.textContent = '连接正常';
-                    dataStatus.textContent = '🟢';
-                    dataInfo.textContent = '后端数据库可用';
-                } else {
-                    throw new Error('API未初始化');
-                }
-            } catch (error) {
-                console.warn('后端连接失败:', error.message);
-                backendStatus.textContent = '🔴';
-                backendInfo.textContent = '连接失败';
-                dataStatus.textContent = '🟡';
-                dataInfo.textContent = '使用本地存储';
-            }
-        }
-        
-        // 备用滚动动画初始化
-        function initScrollAnimationsFallback() {
-            // 确保所有带有animate-on-scroll类的section都可见
-            const animatedSections = document.querySelectorAll('.animate-on-scroll');
-            animatedSections.forEach(section => {
-                section.classList.add('section-visible');
-            });
-            
-            // 特性卡片动画
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach((card, index) => {
-                card.classList.add('animate-fadeInUp');
-                card.style.animationDelay = `${index * 0.2}s`;
-            });
-            
-            // 系统状态指示灯已通过CSS动画实现
-            
-            // 步骤动画
-            const processSteps = document.querySelectorAll('.process-step');
-            const processObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const step = entry.target;
-                        const index = Array.from(processSteps).indexOf(step);
-                        step.classList.add('animate-scaleIn');
-                        step.style.animationDelay = `${index * 0.3}s`;
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            processSteps.forEach(step => {
-                processObserver.observe(step);
-            });
-        }
-    </script>
 </body>
 </html>

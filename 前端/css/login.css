@@ -1,0 +1,172 @@
+/* Login Page Styles - Quiet Living Theme */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    /* Match the Homepage Background */
+    background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Dark Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker for login focus */
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Glass Card */
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Typography */
+.brand-header {
+    margin-bottom: 3rem;
+}
+
+.brand-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--sage-900);
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.brand-header p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 2rem;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sage-700);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(--stone-300);
+    background: transparent;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #ccc;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.form-group input:focus {
+    border-bottom-color: var(--sage-800);
+}
+
+/* Button */
+.btn-login {
+    width: 100%;
+    padding: 1rem;
+    background: var(--sage-900);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-login:hover {
+    background: var(--sage-800);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn-login .arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-login:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Error Message */
+.error-message {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    min-height: 20px;
+    font-weight: 500;
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 3rem;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--stone-200);
+    padding-top: 1.5rem;
+}
+
+/* Animation */
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}

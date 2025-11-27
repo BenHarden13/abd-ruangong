@@ -1,329 +1,273 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健康仪表盘 - Diet Hub</title>
+    <title>Wellness Dashboard - DietHub</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/global-enhancements.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>🍎 Diet & Health Hub</h2>
+                <h2>DietHub.</h2>
             </div>
             <div class="nav-menu">
-                <a href="../index.html" class="nav-link">首页</a>
-                <a href="profile.html" class="nav-link">健康档案</a>
-                <a href="dashboard.html" class="nav-link active">健康仪表盘</a>
-                <a href="recommendations.html" class="nav-link">饮食推荐</a>
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="recommendations.html" class="nav-link">Recipes</a>
             </div>
         </div>
     </nav>
 
-    <!-- 主要内容 -->
+    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="page-header">
-                <h1>📊 健康仪表盘</h1>
-                <p>全面了解您的健康状况</p>
+            <div class="page-header animate-fadeInUp">
+                <h1>Wellness Overview</h1>
+                <p>Your daily health metrics and progress</p>
             </div>
 
-            <!-- 用户信息卡片 -->
+            <!-- User Info Card -->
             <div id="userInfoCard" class="user-info-card shadow-soft animate-fadeIn">
                 <div class="user-info-header">
-                    <h2>👤 <span id="userName">用户</span></h2>
-                    <button class="btn btn-sm btn-secondary" onclick="location.href='profile.html'">
-                        编辑档案
+                    <h2>👤 <span id="userName">User</span></h2>
+                    <button class="btn btn-sm btn-secondary-light" onclick="location.href='profile.html'">
+                        Update Profile
                     </button>
                 </div>
                 <div class="user-info-grid">
                     <div class="info-item">
-                        <span class="label">性别:</span>
+                        <span class="label">Gender</span>
                         <span class="value" id="userGender">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">年龄:</span>
+                        <span class="label">Age</span>
                         <span class="value" id="userAge">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">身高:</span>
+                        <span class="label">Height</span>
                         <span class="value" id="userHeight">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">体重:</span>
+                        <span class="label">Weight</span>
                         <span class="value" id="userWeight">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">活动水平:</span>
+                        <span class="label">Activity</span>
                         <span class="value" id="userActivity">-</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">健康目标:</span>
+                        <span class="label">Goal</span>
                         <span class="value" id="userGoal">-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 健康指标卡片组 -->
+            <!-- Metrics Grid -->
             <div class="metrics-grid">
-                <!-- BMI卡片 -->
+                <!-- BMI Card -->
                 <div class="metric-card bmi-card shadow-soft animate-fadeInUp delay-100">
-                    <div class="metric-icon">📏</div>
-                    <h3>BMI 身体质量指数</h3>
-                    <div class="metric-value" id="bmiValue">-</div>
-                    <div class="metric-status" id="bmiStatus">-</div>
-                    <div class="metric-description">
-                        <small>理想范围: 18.5 - 24.9</small>
+                    <div class="metric-header">
+                        <span class="metric-icon">📏</span>
+                        <h3>Body Mass Index</h3>
+                    </div>
+                    <div class="metric-body">
+                        <div class="metric-value" id="bmiValue">-</div>
+                        <div class="metric-status" id="bmiStatus">-</div>
+                        <div class="metric-description">
+                            <small>Target: 18.5 - 24.9</small>
+                        </div>
                     </div>
                 </div>
 
-                <!-- BMR卡片 -->
+                <!-- BMR Card -->
                 <div class="metric-card bmr-card shadow-soft animate-fadeInUp delay-200">
-                    <div class="metric-icon">🔥</div>
-                    <h3>BMR 基础代谢率</h3>
-                    <div class="metric-value" id="bmrValue">-</div>
-                    <div class="metric-unit">千卡/天</div>
-                    <div class="metric-description">
-                        <small>静息状态下的能量消耗</small>
+                    <div class="metric-header">
+                        <span class="metric-icon">🔥</span>
+                        <h3>Basal Metabolic Rate</h3>
+                    </div>
+                    <div class="metric-body">
+                        <div class="metric-value" id="bmrValue">-</div>
+                        <div class="metric-unit">kcal/day</div>
+                        <div class="metric-description">
+                            <small>Resting burn</small>
+                        </div>
                     </div>
                 </div>
 
-                <!-- TDEE卡片 -->
+                <!-- TDEE Card -->
                 <div class="metric-card tdee-card shadow-soft animate-fadeInUp delay-300">
-                    <div class="metric-icon">⚡</div>
-                    <h3>TDEE 总能量消耗</h3>
-                    <div class="metric-value" id="tdeeValue">-</div>
-                    <div class="metric-unit">千卡/天</div>
-                    <div class="metric-description">
-                        <small>包含活动在内的总消耗</small>
+                    <div class="metric-header">
+                        <span class="metric-icon">⚡</span>
+                        <h3>Total Daily Energy</h3>
+                    </div>
+                    <div class="metric-body">
+                        <div class="metric-value" id="tdeeValue">-</div>
+                        <div class="metric-unit">kcal/day</div>
+                        <div class="metric-description">
+                            <small>Active burn</small>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 目标卡路里卡片 -->
+                <!-- Target Calories Card -->
                 <div class="metric-card calories-card shadow-soft animate-fadeInUp delay-400">
-                    <div class="metric-icon">🎯</div>
-                    <h3>目标卡路里</h3>
-                    <div class="metric-value" id="targetCalories">-</div>
-                    <div class="metric-unit">千卡/天</div>
-                    <div class="metric-description">
-                        <small>基于您的健康目标</small>
+                    <div class="metric-header">
+                        <span class="metric-icon">🎯</span>
+                        <h3>Daily Target</h3>
+                    </div>
+                    <div class="metric-body">
+                        <div class="metric-value" id="targetCalories">-</div>
+                        <div class="metric-unit">kcal/day</div>
+                        <div class="metric-description">
+                            <small>Recommended</small>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 营养素配比 -->
+            <!-- Nutrition Card -->
             <div class="nutrition-card shadow-soft animate-fadeInUp delay-500">
-                <h2>🥗 推荐营养素配比</h2>
+                <h2>Nutritional Balance</h2>
                 <div class="macros-grid">
-                    <div class="macro-item protein shadow-neumorphic">
+                    <div class="macro-item protein">
                         <div class="macro-icon">🥩</div>
-                        <h3>蛋白质</h3>
-                        <div class="macro-amount" id="proteinAmount">-</div>
-                        <div class="macro-percentage" id="proteinPercentage">-</div>
-                        <div class="macro-calories" id="proteinCalories">-</div>
+                        <div class="macro-details">
+                            <h3>Protein</h3>
+                            <div class="macro-amount" id="proteinAmount">-</div>
+                            <div class="macro-sub">
+                                <span id="proteinPercentage">-</span> • <span id="proteinCalories">-</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="macro-item carbs shadow-neumorphic">
+                    <div class="macro-item carbs">
                         <div class="macro-icon">🍚</div>
-                        <h3>碳水化合物</h3>
-                        <div class="macro-amount" id="carbsAmount">-</div>
-                        <div class="macro-percentage" id="carbsPercentage">-</div>
-                        <div class="macro-calories" id="carbsCalories">-</div>
+                        <div class="macro-details">
+                            <h3>Carbs</h3>
+                            <div class="macro-amount" id="carbsAmount">-</div>
+                            <div class="macro-sub">
+                                <span id="carbsPercentage">-</span> • <span id="carbsCalories">-</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="macro-item fats shadow-neumorphic">
+                    <div class="macro-item fats">
                         <div class="macro-icon">🥑</div>
-                        <h3>脂肪</h3>
-                        <div class="macro-amount" id="fatsAmount">-</div>
-                        <div class="macro-percentage" id="fatsPercentage">-</div>
-                        <div class="macro-calories" id="fatsCalories">-</div>
+                        <div class="macro-details">
+                            <h3>Fats</h3>
+                            <div class="macro-amount" id="fatsAmount">-</div>
+                            <div class="macro-sub">
+                                <span id="fatsPercentage">-</span> • <span id="fatsCalories">-</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 环形图表替代进度条 -->
+                <!-- Donut Chart -->
                 <div class="donut-chart-container">
+                    <!-- Removed inline transforms to let CSS handle rotation cleanly -->
                     <svg width="220" height="220" viewBox="0 0 220 220" class="donut-chart">
-                        <circle r="90" cx="110" cy="110" fill="transparent" stroke="#e6e6e6" stroke-width="20"></circle>
-                        <!-- 蛋白质弧 -->
-                        <circle id="proteinArc" r="90" cx="110" cy="110" fill="transparent" stroke="#FF6B6B" stroke-width="20" stroke-dasharray="0 566" stroke-dashoffset="0" transform="rotate(-90 110 110)"></circle>
-                        <!-- 碳水弧 -->
-                        <circle id="carbsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#48DBFB" stroke-width="20" stroke-dasharray="0 566" stroke-dashoffset="0" transform="rotate(-90 110 110)"></circle>
-                        <!-- 脂肪弧 -->
-                        <circle id="fatsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#1DD1A1" stroke-width="20" stroke-dasharray="0 566" stroke-dashoffset="0" transform="rotate(-90 110 110)"></circle>
+                        <!-- Background Circle -->
+                        <circle r="90" cx="110" cy="110" fill="transparent" stroke="#e6e2d8" stroke-width="12"></circle>
+                        <!-- Protein Arc (Warm Red) -->
+                        <circle id="proteinArc" r="90" cx="110" cy="110" fill="transparent" stroke="#e07a5f" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
+                        <!-- Carbs Arc (Sage Green) -->
+                        <circle id="carbsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#81b29a" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
+                        <!-- Fats Arc (Sand/Gold) -->
+                        <circle id="fatsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#f2cc8f" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
                     </svg>
                     <div class="donut-center">
                         <span id="totalCalories">-</span>
-                        <small>卡路里</small>
+                        <small>kcal</small>
                     </div>
                 </div>
             </div>
 
-            <!-- BMI图表说明 -->
+            <!-- BMI Scale -->
             <div class="bmi-chart-card shadow-soft animate-fadeInUp">
-                <h2>📈 BMI 分类标准</h2>
+                <h2>BMI Scale</h2>
                 <div class="bmi-ranges interactive-ranges">
-                    <div class="bmi-range underweight shadow-neumorphic" data-bmi-range="underweight">
-                        <span class="range-label">偏瘦</span>
+                    <div class="bmi-range underweight" data-bmi-range="underweight">
+                        <span class="range-label">Underweight</span>
                         <span class="range-value">&lt; 18.5</span>
                     </div>
-                    <div class="bmi-range normal shadow-neumorphic" data-bmi-range="normal">
-                        <span class="range-label">正常</span>
+                    <div class="bmi-range normal" data-bmi-range="normal">
+                        <span class="range-label">Normal</span>
                         <span class="range-value">18.5 - 24.9</span>
                     </div>
-                    <div class="bmi-range overweight shadow-neumorphic" data-bmi-range="overweight">
-                        <span class="range-label">超重</span>
+                    <div class="bmi-range overweight" data-bmi-range="overweight">
+                        <span class="range-label">Overweight</span>
                         <span class="range-value">25.0 - 29.9</span>
                     </div>
-                    <div class="bmi-range obese shadow-neumorphic" data-bmi-range="obese">
-                        <span class="range-label">肥胖</span>
+                    <div class="bmi-range obese" data-bmi-range="obese">
+                        <span class="range-label">Obese</span>
                         <span class="range-value">≥ 30.0</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 健康建议 -->
+            <!-- Insights -->
             <div class="recommendations-card shadow-soft animate-fadeInUp">
-                <h2>💡 个性化建议</h2>
+                <h2>Insights</h2>
                 <div id="healthAdvice" class="advice-list">
-                    <p class="no-data">请先完善您的健康档案</p>
+                    <p class="no-data">Profile data needed for insights.</p>
                 </div>
                 <div class="card-actions">
                     <button class="btn btn-primary" onclick="location.href='recommendations.html'">
-                        查看饮食推荐
+                        View Recipes
                     </button>
                 </div>
             </div>
 
-            <!-- 没有数据时的提示 -->
-            <div id="noDataMessage" class="no-data-card shadow-neumorphic animate-scaleIn">
+            <!-- No Data State -->
+            <div id="noDataMessage" class="no-data-card shadow-neumorphic animate-scaleIn" style="display:none;">
                 <div class="no-data-icon animate-pulse">📋</div>
-                <h2>还没有健康档案</h2>
-                <p>请先创建您的个人健康档案，以查看详细的健康分析</p>
+                <h2>No Health Profile Found</h2>
+                <p>Please create your personal health profile to view detailed analytics.</p>
                 <button class="btn btn-primary btn-lg" onclick="location.href='profile.html'">
-                    创建档案
+                    Create Profile
                 </button>
             </div>
         </div>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Diet & Health Hub. 健康生活，从科学饮食开始。</p>
+            <p>&copy; 2024 DietHub. Designed for quiet living.</p>
         </div>
     </footer>
 
     <script src="../js/api.js"></script>
-    <script src="../js/CountUpEffect.js" type="module"></script>
     <script src="../js/dashboard.js"></script>
     
     <script>
-        // 增强仪表盘交互效果
+        // Interaction logic specific to Dashboard HTML
         document.addEventListener('DOMContentLoaded', function() {
-            // 初始化BMI分类标签交互
             initBmiRangeInteraction();
-            
-            // 初始化环形图表动画
-            initDonutChartAnimation();
         });
         
-        // BMI分类标签交互效果
         function initBmiRangeInteraction() {
             const bmiRanges = document.querySelectorAll('.bmi-range');
-            const bmiCard = document.querySelector('.bmi-card');
             
             bmiRanges.forEach(range => {
                 range.addEventListener('mouseenter', function() {
-                    // 添加高亮效果
                     this.classList.add('active');
-                    
-                    // 获取BMI范围类型
-                    const rangeType = this.getAttribute('data-bmi-range');
-                    
-                    // 检查当前用户的BMI值所在范围
-                    const currentBmi = parseFloat(document.getElementById('bmiValue').textContent);
-                    const isUserInThisRange = checkIfBmiInRange(currentBmi, rangeType);
-                    
-                    // 如果用户在此范围内，增强BMI卡片效果
-                    if (isUserInThisRange) {
-                        bmiCard.classList.add('highlighted');
-                    }
                 });
                 
                 range.addEventListener('mouseleave', function() {
-                    // 移除高亮效果
                     this.classList.remove('active');
-                    bmiCard.classList.remove('highlighted');
                 });
-            });
-        }
-        
-        // 检查BMI值是否在指定范围内
-        function checkIfBmiInRange(bmi, rangeType) {
-            switch(rangeType) {
-                case 'underweight':
-                    return bmi < 18.5;
-                case 'normal':
-                    return bmi >= 18.5 && bmi < 25;
-                case 'overweight':
-                    return bmi >= 25 && bmi < 30;
-                case 'obese':
-                    return bmi >= 30;
-                default:
-                    return false;
-            }
-        }
-        
-        // 初始化环形图表动画
-        function initDonutChartAnimation() {
-            // 获取SVG圆形元素
-            const proteinArc = document.getElementById('proteinArc');
-            const carbsArc = document.getElementById('carbsArc');
-            const fatsArc = document.getElementById('fatsArc');
-            
-            // 圆周长
-            const circumference = 2 * Math.PI * 90;
-            
-            // 示例数据 (最终会从API获取)
-            const nutritionData = {
-                protein: { percent: 30 },
-                carbs: { percent: 40 },
-                fats: { percent: 30 }
-            };
-            
-            // 计算各部分的弧长和偏移量
-            let offset = 0;
-            
-            // 蛋白质弧
-            const proteinLength = (nutritionData.protein.percent / 100) * circumference;
-            proteinArc.style.strokeDasharray = `${proteinLength} ${circumference}`;
-            proteinArc.style.strokeDashoffset = '0';
-            offset += proteinLength;
-            
-            // 碳水弧
-            const carbsLength = (nutritionData.carbs.percent / 100) * circumference;
-            carbsArc.style.strokeDasharray = `${carbsLength} ${circumference}`;
-            carbsArc.style.strokeDashoffset = `-${offset}`;
-            offset += carbsLength;
-            
-            // 脂肪弧
-            const fatsLength = (nutritionData.fats.percent / 100) * circumference;
-            fatsArc.style.strokeDasharray = `${fatsLength} ${circumference}`;
-            fatsArc.style.strokeDashoffset = `-${offset}`;
-            
-            // 应用动画
-            [proteinArc, carbsArc, fatsArc].forEach(arc => {
-                const originalDashArray = arc.style.strokeDasharray;
-                arc.style.strokeDasharray = '0 ' + circumference;
-                
-                setTimeout(() => {
-                    arc.style.transition = 'stroke-dasharray 1.5s ease';
-                    arc.style.strokeDasharray = originalDashArray;
-                }, 500);
             });
         }
     </script>
