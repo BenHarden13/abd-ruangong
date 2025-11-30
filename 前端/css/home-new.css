@@ -2,10 +2,10 @@
 
 /* 1. 全屏背景设置 - 强制应用 */
 body.single-page-mode {
-    /* 使用高品质的健康饮食平铺背景图 */
-    background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed !important;
+    /* 使用本地高品质的健康饮食背景图 */
+    background: url('../images/hero-background.jpg') no-repeat center center fixed !important;
     background-size: cover !important;
-    background-color: #1a1a1a !important;
+    background-color: #f8f9fa !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
