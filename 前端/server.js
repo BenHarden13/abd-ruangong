@@ -1,4 +1,4 @@
-const http = require('http');
+﻿const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const port = 3000;
@@ -6,7 +6,11 @@ const port = 3000;
 // 创建HTTP服务器
 const server = http.createServer((req, res) => {
     // 处理请求URL
-    const filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url.slice(1));
+    let url = req.url;
+    if (url === '/') {
+        url = '/pages/index.html';
+    }
+    const filePath = path.join(__dirname, url.slice(1));
     
     // 读取文件
     fs.readFile(filePath, (err, data) => {

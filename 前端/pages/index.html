@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet & Health Hub - 智能饮食健康管理平台</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/modern-design.css">
+</head>
+<body class="home-page">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 健康苹果图标 -->
+                    <rect width="36" height="36" rx="10" fill="url(#logo-gradient)"/>
+                    
+                    <!-- 苹果叶子 -->
+                    <path d="M18 8 Q16 8 16 11 Q16 10 17 9 Q18 8 19 9 Q20 10 20 11 Q20 8 18 8 Z" 
+                          fill="#10B981" 
+                          stroke="#059669" 
+                          stroke-width="0.5"/>
+                    
+                    <!-- 苹果主体 -->
+                    <path d="M18 11 C14 11 11 14 11 18 C11 21 12 24 14 26 C15.5 27.5 16.5 28 18 28 C19.5 28 20.5 27.5 22 26 C24 24 25 21 25 18 C25 14 22 11 18 11 Z" 
+                          fill="#EF4444" 
+                          stroke="#DC2626" 
+                          stroke-width="1"/>
+                    
+                    <!-- 苹果高光 -->
+                    <ellipse cx="15" cy="15" rx="2.5" ry="3" 
+                             fill="rgba(255, 255, 255, 0.4)"/>
+                    
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#4F46E5"/>
+                            <stop offset="100%" stop-color="#10B981"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="brand-text">Diet & Health Hub</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="pages/profile.html" class="nav-link">健康档案</a>
+                <a href="pages/dashboard.html" class="nav-link">健康仪表盘</a>
+                <a href="pages/recommendations.html" class="nav-link">饮食推荐</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">智能饮食健康管理</h1>
+                <p class="hero-subtitle">基于个人健康档案，提供科学的饮食与健康指导，让健康生活更智能、更个性化</p>
+                <div class="hero-buttons">
+                    <a href="pages/profile.html" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 11C12.2091 11 14 9.20914 14 7C14 4.79086 12.2091 3 10 3C7.79086 3 6 4.79086 6 7C6 9.20914 7.79086 11 10 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 17C3 14.2386 5.68629 12 9 12H11C14.3137 12 17 14.2386 17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        开始使用
+                    </a>
+                    <a href="pages/dashboard.html" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10C3 10 6 4 10 4C14 4 17 10 17 10C17 10 14 16 10 16C6 16 3 10 3 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        查看健康数据
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-text">
+                        <div class="card-label">BMI</div>
+                        <div class="card-value">22.5</div>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-text">
+                        <div class="card-label">卡路里</div>
+                        <div class="card-value">2,150</div>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-text">
+                        <div class="card-label">目标达成</div>
+                        <div class="card-value">85%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="features">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">核心功能</h2>
+                <p class="section-description">全方位的健康管理工具，助力您的健康之旅</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="#EEF2FF"/>
+                            <path d="M24 28C27.3137 28 30 25.3137 30 22C30 18.6863 27.3137 16 24 16C20.6863 16 18 18.6863 18 22C18 25.3137 20.6863 28 24 28Z" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 34C15 30.6863 18.6863 27 24 27C29.3137 27 33 30.6863 33 34" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">个人健康档案</h3>
+                    <p class="feature-description">详细记录身体指标、健康目标和活动水平，建立专属健康档案</p>
+                    <a href="pages/profile.html" class="feature-link">
+                        设置档案
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="#ECFDF5"/>
+                            <path d="M16 30L22 24L26 28L32 22" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M28 22H32V26" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="14" y="18" width="20" height="16" rx="2" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">健康仪表盘</h3>
+                    <p class="feature-description">实时查看 BMI、BMR、TDEE 等关键指标，追踪健康变化趋势</p>
+                    <a href="pages/dashboard.html" class="feature-link">
+                        查看数据
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="#FEF3C7"/>
+                            <circle cx="24" cy="20" r="4" stroke="#F59E0B" stroke-width="2"/>
+                            <path d="M24 24V28M20 28H28M18 32H30" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">智能饮食推荐</h3>
+                    <p class="feature-description">基于个人目标和健康状况，提供科学的饮食建议和食谱推荐</p>
+                    <a href="pages/recommendations.html" class="feature-link">
+                        获取推荐
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="#FCE7F3"/>
+                            <path d="M32 24C32 28.4183 28.4183 32 24 32C19.5817 32 16 28.4183 16 24C16 19.5817 19.5817 16 24 16" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 16C24 16 28 16 32 20C32 20 32 24 24 24V16Z" fill="#EC4899" fill-opacity="0.2" stroke="#EC4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">趋势追踪</h3>
+                    <p class="feature-description">数据可视化分析，轻松掌握健康变化趋势，科学调整计划</p>
+                    <a href="pages/dashboard.html" class="feature-link">
+                        查看趋势
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Status -->
+    <section class="system-status">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">系统状态</h2>
+                <p class="section-description">实时监控系统运行状态</p>
+            </div>
+            
+            <div class="status-grid">
+                <div class="status-item">
+                    <div class="status-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-label">前端系统</div>
+                        <div class="status-value">运行正常</div>
+                    </div>
+                    <div class="status-indicator status-success"></div>
+                </div>
+
+                <div class="status-item">
+                    <div class="status-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                            <rect x="14" y="4" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                            <rect x="4" y="14" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                            <rect x="14" y="14" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-label">后端服务</div>
+                        <div class="status-value" id="backend-status-text">检测中...</div>
+                    </div>
+                    <div class="status-indicator" id="backend-status-indicator"></div>
+                </div>
+
+                <div class="status-item">
+                    <div class="status-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9L12 2L21 9V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 21V12H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-label">数据存储</div>
+                        <div class="status-value" id="storage-status-text">本地存储可用</div>
+                    </div>
+                    <div class="status-indicator status-warning" id="storage-status-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="36" height="36" rx="10" fill="url(#logo-gradient-footer)"/>
+                            <path d="M18 10C18 10 14 12.5 14 17C14 19.5 15.5 21 17 22.5C18.5 24 18 26 18 26C18 26 17.5 24 19 22.5C20.5 21 22 19.5 22 17C22 12.5 18 10 18 10Z" fill="white"/>
+                            <circle cx="18" cy="27" r="2.5" fill="white"/>
+                            <defs>
+                                <linearGradient id="logo-gradient-footer" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#4F46E5"/>
+                                    <stop offset="100%" stop-color="#10B981"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="brand-text">Diet & Health Hub</span>
+                    </div>
+                    <p class="footer-description">智能饮食健康管理平台，让健康生活更智能、更个性化。</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/profile.html">健康档案</a></li>
+                        <li><a href="pages/dashboard.html">健康仪表盘</a></li>
+                        <li><a href="pages/recommendations.html">饮食推荐</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">关于</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">技术</h4>
+                    <ul class="footer-links">
+                        <li>前端：HTML5 + CSS3 + JavaScript</li>
+                        <li>后端：Spring Boot + JPA</li>
+                        <li>数据库：H2/MySQL</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Diet & Health Hub. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/modern-design.js"></script>
+</body>
+</html>

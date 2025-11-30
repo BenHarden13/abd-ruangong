@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - DietHub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Relative paths for pages directory -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/global-enhancements.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-card animate-fadeInUp">
+            <div class="brand-header">
+                <h2>DietHub.</h2>
+                <p>Intelligent Nutrition</p>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="username">Username ID</label>
+                    <input type="text" id="username" placeholder="Enter 8-digit ID" autocomplete="off">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="form-actions-row">
+                    <a href="#" id="showForgot" class="link-small">Forgot Password?</a>
+                </div>
+
+                <div id="loginError" class="error-message"></div>
+
+                <button type="submit" class="btn-login">
+                    Sign In <span class="arrow">→</span>
+                </button>
+
+                <div class="switch-auth">
+                    <span>New here?</span>
+                    <a href="#" id="showRegister">Create Account</a>
+                </div>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="reg-username">Choose Username ID</label>
+                    <input type="text" id="reg-username" placeholder="8 characters minimum" autocomplete="off">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-contact">Email or Phone</label>
+                    <input type="text" id="reg-contact" placeholder="contact@example.com">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password">Create Password</label>
+                    <input type="password" id="reg-password" placeholder="Secure password">
+                    <div class="input-line"></div>
+                </div>
+
+                <div id="registerError" class="error-message"></div>
+
+                <button type="submit" class="btn-login">
+                    Register <span class="arrow">→</span>
+                </button>
+
+                <div class="switch-auth">
+                    <span>Already a member?</span>
+                    <a href="#" class="showLogin">Sign In</a>
+                </div>
+            </form>
+
+            <!-- FORGOT PASSWORD FORM -->
+            <form id="forgotForm" class="auth-form" style="display: none;">
+                <p class="form-instruction">Enter your registered email or phone number to reset your password.</p>
+                
+                <div class="form-group">
+                    <label for="forgot-contact">Email or Phone</label>
+                    <input type="text" id="forgot-contact" placeholder="e.g. +1 555 0123">
+                    <div class="input-line"></div>
+                </div>
+
+                <div id="forgotError" class="error-message"></div>
+                <div id="forgotSuccess" class="success-message" style="display:none;">Reset link sent!</div>
+
+                <button type="submit" class="btn-login">
+                    Send Reset Link
+                </button>
+
+                <div class="switch-auth">
+                    <a href="#" class="showLogin">Back to Sign In</a>
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <p>&copy; 2025 DietHub. Designed for quiet living.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

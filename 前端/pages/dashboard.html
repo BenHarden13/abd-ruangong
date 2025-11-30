@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,9 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/global-enhancements.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
@@ -28,7 +25,6 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <div class="page-header animate-fadeInUp">
@@ -45,93 +41,32 @@
                     </button>
                 </div>
                 <div class="user-info-grid">
-                    <div class="info-item">
-                        <span class="label">Gender</span>
-                        <span class="value" id="userGender">-</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Age</span>
-                        <span class="value" id="userAge">-</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Height</span>
-                        <span class="value" id="userHeight">-</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Weight</span>
-                        <span class="value" id="userWeight">-</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Activity</span>
-                        <span class="value" id="userActivity">-</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Goal</span>
-                        <span class="value" id="userGoal">-</span>
-                    </div>
+                    <div class="info-item"><span class="label">Gender</span><span class="value" id="userGender">-</span></div>
+                    <div class="info-item"><span class="label">Age</span><span class="value" id="userAge">-</span></div>
+                    <div class="info-item"><span class="label">Height</span><span class="value" id="userHeight">-</span></div>
+                    <div class="info-item"><span class="label">Weight</span><span class="value" id="userWeight">-</span></div>
+                    <div class="info-item"><span class="label">Activity</span><span class="value" id="userActivity">-</span></div>
+                    <div class="info-item"><span class="label">Goal</span><span class="value" id="userGoal">-</span></div>
                 </div>
             </div>
 
             <!-- Metrics Grid -->
             <div class="metrics-grid">
-                <!-- BMI Card -->
                 <div class="metric-card bmi-card shadow-soft animate-fadeInUp delay-100">
-                    <div class="metric-header">
-                        <span class="metric-icon">📏</span>
-                        <h3>Body Mass Index</h3>
-                    </div>
-                    <div class="metric-body">
-                        <div class="metric-value" id="bmiValue">-</div>
-                        <div class="metric-status" id="bmiStatus">-</div>
-                        <div class="metric-description">
-                            <small>Target: 18.5 - 24.9</small>
-                        </div>
-                    </div>
+                    <div class="metric-header"><span class="metric-icon">📏</span><h3>Body Mass Index</h3></div>
+                    <div class="metric-body"><div class="metric-value" id="bmiValue">-</div><div class="metric-status" id="bmiStatus">-</div><div class="metric-description"><small>Target: 18.5 - 24.9</small></div></div>
                 </div>
-
-                <!-- BMR Card -->
                 <div class="metric-card bmr-card shadow-soft animate-fadeInUp delay-200">
-                    <div class="metric-header">
-                        <span class="metric-icon">🔥</span>
-                        <h3>Basal Metabolic Rate</h3>
-                    </div>
-                    <div class="metric-body">
-                        <div class="metric-value" id="bmrValue">-</div>
-                        <div class="metric-unit">kcal/day</div>
-                        <div class="metric-description">
-                            <small>Resting burn</small>
-                        </div>
-                    </div>
+                    <div class="metric-header"><span class="metric-icon">🔥</span><h3>Basal Metabolic Rate</h3></div>
+                    <div class="metric-body"><div class="metric-value" id="bmrValue">-</div><div class="metric-unit">kcal/day</div><div class="metric-description"><small>Resting burn</small></div></div>
                 </div>
-
-                <!-- TDEE Card -->
                 <div class="metric-card tdee-card shadow-soft animate-fadeInUp delay-300">
-                    <div class="metric-header">
-                        <span class="metric-icon">⚡</span>
-                        <h3>Total Daily Energy</h3>
-                    </div>
-                    <div class="metric-body">
-                        <div class="metric-value" id="tdeeValue">-</div>
-                        <div class="metric-unit">kcal/day</div>
-                        <div class="metric-description">
-                            <small>Active burn</small>
-                        </div>
-                    </div>
+                    <div class="metric-header"><span class="metric-icon">⚡</span><h3>Total Daily Energy</h3></div>
+                    <div class="metric-body"><div class="metric-value" id="tdeeValue">-</div><div class="metric-unit">kcal/day</div><div class="metric-description"><small>Active burn</small></div></div>
                 </div>
-
-                <!-- Target Calories Card -->
                 <div class="metric-card calories-card shadow-soft animate-fadeInUp delay-400">
-                    <div class="metric-header">
-                        <span class="metric-icon">🎯</span>
-                        <h3>Daily Target</h3>
-                    </div>
-                    <div class="metric-body">
-                        <div class="metric-value" id="targetCalories">-</div>
-                        <div class="metric-unit">kcal/day</div>
-                        <div class="metric-description">
-                            <small>Recommended</small>
-                        </div>
-                    </div>
+                    <div class="metric-header"><span class="metric-icon">🎯</span><h3>Daily Target</h3></div>
+                    <div class="metric-body"><div class="metric-value" id="targetCalories">-</div><div class="metric-unit">kcal/day</div><div class="metric-description"><small>Recommended</small></div></div>
                 </div>
             </div>
 
@@ -139,57 +74,18 @@
             <div class="nutrition-card shadow-soft animate-fadeInUp delay-500">
                 <h2>Nutritional Balance</h2>
                 <div class="macros-grid">
-                    <div class="macro-item protein">
-                        <div class="macro-icon">🥩</div>
-                        <div class="macro-details">
-                            <h3>Protein</h3>
-                            <div class="macro-amount" id="proteinAmount">-</div>
-                            <div class="macro-sub">
-                                <span id="proteinPercentage">-</span> • <span id="proteinCalories">-</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="macro-item carbs">
-                        <div class="macro-icon">🍚</div>
-                        <div class="macro-details">
-                            <h3>Carbs</h3>
-                            <div class="macro-amount" id="carbsAmount">-</div>
-                            <div class="macro-sub">
-                                <span id="carbsPercentage">-</span> • <span id="carbsCalories">-</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="macro-item fats">
-                        <div class="macro-icon">🥑</div>
-                        <div class="macro-details">
-                            <h3>Fats</h3>
-                            <div class="macro-amount" id="fatsAmount">-</div>
-                            <div class="macro-sub">
-                                <span id="fatsPercentage">-</span> • <span id="fatsCalories">-</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="macro-item protein"><div class="macro-icon">🥩</div><div class="macro-details"><h3>Protein</h3><div class="macro-amount" id="proteinAmount">-</div><div class="macro-sub"><span id="proteinPercentage">-</span> • <span id="proteinCalories">-</span></div></div></div>
+                    <div class="macro-item carbs"><div class="macro-icon">🍚</div><div class="macro-details"><h3>Carbs</h3><div class="macro-amount" id="carbsAmount">-</div><div class="macro-sub"><span id="carbsPercentage">-</span> • <span id="carbsCalories">-</span></div></div></div>
+                    <div class="macro-item fats"><div class="macro-icon">🥑</div><div class="macro-details"><h3>Fats</h3><div class="macro-amount" id="fatsAmount">-</div><div class="macro-sub"><span id="fatsPercentage">-</span> • <span id="fatsCalories">-</span></div></div></div>
                 </div>
-
-                <!-- Donut Chart -->
                 <div class="donut-chart-container">
-                    <!-- Removed inline transforms to let CSS handle rotation cleanly -->
                     <svg width="220" height="220" viewBox="0 0 220 220" class="donut-chart">
-                        <!-- Background Circle -->
                         <circle r="90" cx="110" cy="110" fill="transparent" stroke="#e6e2d8" stroke-width="12"></circle>
-                        <!-- Protein Arc (Warm Red) -->
                         <circle id="proteinArc" r="90" cx="110" cy="110" fill="transparent" stroke="#e07a5f" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
-                        <!-- Carbs Arc (Sage Green) -->
                         <circle id="carbsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#81b29a" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
-                        <!-- Fats Arc (Sand/Gold) -->
                         <circle id="fatsArc" r="90" cx="110" cy="110" fill="transparent" stroke="#f2cc8f" stroke-width="12" stroke-dasharray="0 566" stroke-dashoffset="0"></circle>
                     </svg>
-                    <div class="donut-center">
-                        <span id="totalCalories">-</span>
-                        <small>kcal</small>
-                    </div>
+                    <div class="donut-center"><span id="totalCalories">-</span><small>kcal</small></div>
                 </div>
             </div>
 
@@ -197,36 +93,18 @@
             <div class="bmi-chart-card shadow-soft animate-fadeInUp">
                 <h2>BMI Scale</h2>
                 <div class="bmi-ranges interactive-ranges">
-                    <div class="bmi-range underweight" data-bmi-range="underweight">
-                        <span class="range-label">Underweight</span>
-                        <span class="range-value">&lt; 18.5</span>
-                    </div>
-                    <div class="bmi-range normal" data-bmi-range="normal">
-                        <span class="range-label">Normal</span>
-                        <span class="range-value">18.5 - 24.9</span>
-                    </div>
-                    <div class="bmi-range overweight" data-bmi-range="overweight">
-                        <span class="range-label">Overweight</span>
-                        <span class="range-value">25.0 - 29.9</span>
-                    </div>
-                    <div class="bmi-range obese" data-bmi-range="obese">
-                        <span class="range-label">Obese</span>
-                        <span class="range-value">≥ 30.0</span>
-                    </div>
+                    <div class="bmi-range underweight" data-bmi-range="underweight"><span class="range-label">Underweight</span><span class="range-value">&lt; 18.5</span></div>
+                    <div class="bmi-range normal" data-bmi-range="normal"><span class="range-label">Normal</span><span class="range-value">18.5 - 24.9</span></div>
+                    <div class="bmi-range overweight" data-bmi-range="overweight"><span class="range-label">Overweight</span><span class="range-value">25.0 - 29.9</span></div>
+                    <div class="bmi-range obese" data-bmi-range="obese"><span class="range-label">Obese</span><span class="range-value">≥ 30.0</span></div>
                 </div>
             </div>
 
             <!-- Insights -->
             <div class="recommendations-card shadow-soft animate-fadeInUp">
                 <h2>Insights</h2>
-                <div id="healthAdvice" class="advice-list">
-                    <p class="no-data">Profile data needed for insights.</p>
-                </div>
-                <div class="card-actions">
-                    <button class="btn btn-primary" onclick="location.href='recommendations.html'">
-                        View Recipes
-                    </button>
-                </div>
+                <div id="healthAdvice" class="advice-list"><p class="no-data">Profile data needed for insights.</p></div>
+                <div class="card-actions"><button class="btn btn-primary" onclick="location.href='recommendations.html'">View Recipes</button></div>
             </div>
 
             <!-- No Data State -->
@@ -234,42 +112,18 @@
                 <div class="no-data-icon animate-pulse">📋</div>
                 <h2>No Health Profile Found</h2>
                 <p>Please create your personal health profile to view detailed analytics.</p>
-                <button class="btn btn-primary btn-lg" onclick="location.href='profile.html'">
-                    Create Profile
-                </button>
+                <button class="btn btn-primary btn-lg" onclick="location.href='profile.html'">Create Profile</button>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 DietHub. Designed for quiet living.</p>
+            <p>&copy; 2025 DietHub. Designed for quiet living.</p>
         </div>
     </footer>
 
     <script src="../js/api.js"></script>
     <script src="../js/dashboard.js"></script>
-    
-    <script>
-        // Interaction logic specific to Dashboard HTML
-        document.addEventListener('DOMContentLoaded', function() {
-            initBmiRangeInteraction();
-        });
-        
-        function initBmiRangeInteraction() {
-            const bmiRanges = document.querySelectorAll('.bmi-range');
-            
-            bmiRanges.forEach(range => {
-                range.addEventListener('mouseenter', function() {
-                    this.classList.add('active');
-                });
-                
-                range.addEventListener('mouseleave', function() {
-                    this.classList.remove('active');
-                });
-            });
-        }
-    </script>
 </body>
 </html>

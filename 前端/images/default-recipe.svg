@@ -1,0 +1,9 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="200" fill="#F3F4F6"/>
+    <circle cx="150" cy="100" r="40" fill="#E5E7EB"/>
+    <path d="M130 90 Q130 80 140 80 L160 80 Q170 80 170 90 L170 110 Q170 120 160 120 L140 120 Q130 120 130 110 Z" fill="#9CA3AF"/>
+    <circle cx="140" cy="95" r="3" fill="#6B7280"/>
+    <circle cx="160" cy="95" r="3" fill="#6B7280"/>
+    <path d="M145 105 Q150 110 155 105" stroke="#6B7280" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <text x="150" y="170" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">默认食谱图片</text>
+</svg>
